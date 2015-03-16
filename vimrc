@@ -2,9 +2,10 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 "Plug 'vim-scripts/SyntaxComplete'
-Plug 'othree/javascript-libraries-syntax.vim'
+"Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
-Plug 'MarcWeber/vim-addon-local-vimrc'
+"Plug 'MarcWeber/vim-addon-local-vimrc'
+Plug 'jelera/vim-javascript-syntax'
 
 call plug#end()
 
