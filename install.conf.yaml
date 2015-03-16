@@ -1,0 +1,22 @@
+- clean: ['~/.vim/']
+- link:
+    ~/.vimrc: vimrc
+    ~/.vim: vim/
+    ~/.bashrc: bashrc
+    ~/bin: bin/
+- shell:
+  -
+    command: mkdir -p ~/{config,ldocs,lwork,ldownloads,storage,docs,work,downloads,programs,projects,media/{video,photo,audio}}
+    stdin: false
+    stderr: true
+    stdout: true
+  -
+    command: echo "copy fstab to /etc/fstab"
+    stdin: false
+    stderr: true
+    stdout: false
+  -
+    command: echo "copy nas:smbcredentials to ~/config/smbcredentials"
+    stdin: false
+    stderr: true
+    stdout: false

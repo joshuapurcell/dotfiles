@@ -1,0 +1,28 @@
+mkfs.btrfs /dev/sda
+mount /dev/sda /mnt
+pacstrap /mnt base
+genfstab -p /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
+echo jlplaptop > /etc/hostname
+ln -sf /usr/share/zoneinfo/America/Vancouver /etc/localtime
+vi /etc/locale.gen # uncomment en_US...
+locale-gen
+echo LANG=en_US.UTF-8 > /etc/locale.conf
+mkinitcpio -p linux #this may need to be after grub-install?
+passwd
+pacman -S grub
+grub-install --recheck /dev/sda #after /etc/fstab is in place?
+grub-mkconfig -o /boot/grub/grub.cfg
+exit # leave chroot
+reboot
+dhcpcd enp0s25
+useradd -m -g users -G wheel -s /bin/bash joshua
+passwd joshua
+pacman -S sudo
+visudo # uncomment wheel group line and also add Defaults:joshua !authenticate
+pacman -S openssh git base-devel xorg-server reflector
+reflector --verbose --country 'United States' -l 200 -p http --sort rate --save /etc/pacman.d/mirrorlist
+#wget package-query and yaourt
+#makepkg -s on both
+#sudo pacman -U on both.pkg.tar.gz
+yaourt nvidia-beta
