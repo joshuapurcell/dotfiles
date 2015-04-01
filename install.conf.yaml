@@ -1,8 +1,11 @@
 - clean: ['~/.vim/']
 - link:
+    ~/.Xresources: Xresources
+    ~/.xinitrc: xinitrc
     ~/.vimrc: vimrc
     ~/.vim: vim/
     ~/.bashrc: bashrc
+    ~/.jshintrc: jshintrc
     ~/bin: bin/
 - shell:
   -

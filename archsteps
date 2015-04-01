@@ -1,5 +1,7 @@
-mkfs.btrfs /dev/sda
-mount /dev/sda /mnt
+wifi-menu
+mkfs.btrfs /dev/sdx
+  - use -f if existing filesystem is detected
+mount /dev/sdx /mnt
 pacstrap /mnt base
 genfstab -p /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
@@ -11,18 +13,27 @@ echo LANG=en_US.UTF-8 > /etc/locale.conf
 mkinitcpio -p linux #this may need to be after grub-install?
 passwd
 pacman -S grub
-grub-install --recheck /dev/sda #after /etc/fstab is in place?
+grub-install --recheck /dev/sdx #after /etc/fstab is in place?
 grub-mkconfig -o /boot/grub/grub.cfg
 exit # leave chroot
 reboot
 dhcpcd enp0s25
+pacman -S dialog wpa_supplicant sudo openssh git base-devel xorg-server reflector wget
+wifi-menu
 useradd -m -g users -G wheel -s /bin/bash joshua
 passwd joshua
-pacman -S sudo
 visudo # uncomment wheel group line and also add Defaults:joshua !authenticate
-pacman -S openssh git base-devel xorg-server reflector
 reflector --verbose --country 'United States' -l 200 -p http --sort rate --save /etc/pacman.d/mirrorlist
-#wget package-query and yaourt
-#makepkg -s on both
-#sudo pacman -U on both.pkg.tar.gz
-yaourt nvidia-beta
+# exit then login as joshua
+wget https://aur.archlinux.org/packages/pa/package-query/package-query.tar.gz
+tar xvzf package-query.tar.gz
+cd package-query
+makepkg -s
+sudo pacman -U package-query-x.x-x86_64.pkg.tar.xz
+wget https://aur.archlinux.org/packages/ya/yaourt/yaourt.tar.gz 
+tar xvzf yaourt.tar.gz
+cd yaourt
+makepkg -s
+sudo pacman -U yaourt-x.x-any.pkg.tar.xz
+sudo pacman -S gnome gnome-extra gnome-initial-setup gnome-tweak-tool
+git clone https://github.com/joshuapurcell/dotfiles.git
