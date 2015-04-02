@@ -18,7 +18,8 @@ grub-mkconfig -o /boot/grub/grub.cfg
 exit # leave chroot
 reboot
 dhcpcd enp0s25
-pacman -S dialog wpa_supplicant sudo openssh git base-devel xorg-server reflector wget
+pacman -S dialog wpa_supplicant sudo openssh git base-devel xorg-server
+xorg-xinit xorg-server-utils reflector wget xf86-input-synaptics
 wifi-menu
 useradd -m -g users -G wheel -s /bin/bash joshua
 passwd joshua
@@ -35,5 +36,13 @@ tar xvzf yaourt.tar.gz
 cd yaourt
 makepkg -s
 sudo pacman -U yaourt-x.x-any.pkg.tar.xz
-sudo pacman -S gnome gnome-extra gnome-initial-setup gnome-tweak-tool
+sudo pacman -S gnome gnome-extra gnome-initial-setup gnome-tweak-tool vim xterm cmake
+sudo rm /usr/bin/vi && sudo ln -s /usr/bin/vim /usr/bin/vi
 git clone https://github.com/joshuapurcell/dotfiles.git
+cd dotfiles
+./install
+vi # :PlugClean then :PlugInstall
+cd ~/.vim/plugged/YouCompleteMe
+./install.sh
+sudo systemctl start NetworkManager
+sudo systemctl enable NetworkManager
