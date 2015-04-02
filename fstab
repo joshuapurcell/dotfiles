@@ -1,12 +1,7 @@
-# 
-# /etc/fstab: static file system information
-#
-# <file system> <dir> <type> <options> <dump> <pass>
-# UUID=c4604b72-520c-41f9-ac8e-252ef12544d3
-/dev/sda / btrfs rw,relatime,ssd,space_cache 0 0
 //DISKSTATION/disk /home/joshua/storage cifs users,credentials=/home/joshua/config/smbcredentials,workgroup=WORKGROUP,ip=192.168.1.161 0 0
 //DISKSTATION/disk/work /home/joshua/work cifs users,credentials=/home/joshua/config/smbcredentials,workgroup=WORKGROUP,ip=192.168.1.161 0 0
 //DISKSTATION/disk/docs /home/joshua/docs cifs users,credentials=/home/joshua/config/smbcredentials,workgroup=WORKGROUP,ip=192.168.1.161 0 0
+//DISKSTATION/disk/downloads /home/joshua/downloads cifs users,credentials=/home/joshua/config/smbcredentials,workgroup=WORKGROUP,ip=192.168.1.161 0 0
 //DISKSTATION/video /home/joshua/media/video cifs users,credentials=/home/joshua/config/smbcredentials,workgroup=WORKGROUP,ip=192.168.1.161 0 0
 //DISKSTATION/photo /home/joshua/media/photo cifs users,credentials=/home/joshua/config/smbcredentials,workgroup=WORKGROUP,ip=192.168.1.161 0 0
 //DISKSTATION/music /home/joshua/media/audio cifs users,credentials=/home/joshua/config/smbcredentials,workgroup=WORKGROUP,ip=192.168.1.161 0 0
