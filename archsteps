@@ -19,6 +19,8 @@ exit # leave chroot
 reboot
 dhcpcd enp0s25
 pacman -S dialog wpa_supplicant sudo openssh git base-devel xorg-server
+git config --global user.email "joshua.purcell@gmail.com"
+git config --global user.name "Joshua Purcell"
 xorg-xinit xorg-server-utils reflector wget xf86-input-synaptics
 wifi-menu
 useradd -m -g users -G wheel -s /bin/bash joshua
@@ -36,7 +38,7 @@ tar xvzf yaourt.tar.gz
 cd yaourt
 makepkg -s
 sudo pacman -U yaourt-x.x-any.pkg.tar.xz
-sudo pacman -S gnome gnome-extra gnome-initial-setup gnome-tweak-tool vim xterm cmake
+sudo pacman -S gnome gnome-extra gnome-initial-setup gnome-tweak-tool vim xterm cmake xulrunner
 sudo rm /usr/bin/vi && sudo ln -s /usr/bin/vim /usr/bin/vi
 git clone https://github.com/joshuapurcell/dotfiles.git
 cd dotfiles
@@ -46,3 +48,5 @@ cd ~/.vim/plugged/YouCompleteMe
 ./install.sh
 sudo systemctl start NetworkManager
 sudo systemctl enable NetworkManager
+sudo vi /etc/modprobe.d/nouveau-blacklist.conf # add blacklist nouveau
+sudo rmmod nouveau
