@@ -35,7 +35,8 @@ xterm*VT100.geometry: 120x30
 *color7:         rgb:ff/ff/ff
 *color15:        rgb:dd/dd/dd
 
-xterm*faceName: Terminus:style=Regular:size=20
+!xterm*faceName: Terminus:style=Regular:size=20
+xterm*faceName: Terminus:style=Regular:size=18
 
 !XTerm*on3Clicks: regex ([[:alpha:]]+://)?([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]][[:xdigit:]]))+
 !XTerm*on3Clicks: regex [[:alpha:]]+://([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]][[:xdigit:]]))+
