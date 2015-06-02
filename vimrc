@@ -11,13 +11,14 @@ Plug 'bling/vim-airline'
 
 " general syntax
 Plug 'plasticboy/vim-markdown'
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
 
 " javascript
 "Plug 'jelera/vim-javascript-syntax'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 "Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-jdaddy'
 
 call plug#end()
 
@@ -26,7 +27,8 @@ set autoread                " auto reload buffer when file modified externally
 set clipboard=unnamed       " yank and paste using system clipboard
 set encoding=utf-8          " default character encoding
 set nowrap                  " do not wrap text
-"set number                  " show line numbers
+set number                  " show line numbers
+set relativenumber          " show relative line numbers
 set scrolloff=3             " keep minimal number of lines above/below cursor
 set showcmd                 " show command line at bottom of screen
 set sidescroll=3            " scroll sideways 3 characters at a time
@@ -71,9 +73,9 @@ map <Leader>n :NERDTreeToggle<CR>
 let g:airline#extensions#whitespace#enabled = 0
 
 " syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['jsxhint']
-let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_javascript_checkers = ['jsxhint']
+"let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'

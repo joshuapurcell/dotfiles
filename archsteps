@@ -50,3 +50,5 @@ sudo systemctl start NetworkManager
 sudo systemctl enable NetworkManager
 sudo vi /etc/modprobe.d/nouveau-blacklist.conf # add blacklist nouveau
 sudo rmmod nouveau
+# after npm is installed, config for older python
+npm config set python /usr/bin/python2

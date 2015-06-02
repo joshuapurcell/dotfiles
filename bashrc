@@ -28,3 +28,6 @@ function node-mode-off() {
   PATH=$_OLD_PATH
 }
 node-mode
+
+export NVM_DIR="/home/joshua/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
