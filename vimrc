@@ -2,8 +2,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
-Plug 'godlygeek/tabular'
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+"Plug 'godlygeek/tabular'
 Plug 'bling/vim-airline'
 "Plug 'vim-scripts/SyntaxComplete'
 "Plug 'othree/javascript-libraries-syntax.vim'
